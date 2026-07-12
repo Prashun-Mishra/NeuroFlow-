@@ -1,0 +1,1 @@
+export function Citations({ citations = [] }) { if (!citations.length) return null; return <details className="citations"><summary>Sources ({citations.length})</summary>{citations.map((citation, index) => <article key={`${citation.documentId}-${citation.chunkIndex}-${index}`}><strong>{citation.documentName}</strong><p>{citation.snippet}</p></article>)}</details>; }

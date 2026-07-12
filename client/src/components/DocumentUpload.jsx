@@ -1,0 +1,2 @@
+import { Upload } from "lucide-react";
+export function DocumentUpload({ onUpload, uploading }) { return <label className="upload-box"><Upload size={24} /><span>{uploading ? "Processing document…" : "Upload a document"}</span><small>PDF, DOCX, TXT, MD, CSV, PNG, JPG, JPEG, WEBP · max 10 MB</small><input type="file" accept=".pdf,.docx,.txt,.md,.csv,.png,.jpg,.jpeg,.webp" disabled={uploading} onChange={(event) => event.target.files?.[0] && onUpload(event.target.files[0])} /></label>; }

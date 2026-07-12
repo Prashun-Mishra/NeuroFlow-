@@ -1,0 +1,10 @@
+import { createBrowserRouter } from "react-router-dom";
+import { LoginPage } from "./pages/LoginPage.jsx";
+import { RegisterPage } from "./pages/RegisterPage.jsx";
+import { DashboardPage } from "./pages/DashboardPage.jsx";
+import { WorkspacesPage } from "./pages/WorkspacesPage.jsx";
+import { WorkspacePage } from "./pages/WorkspacePage.jsx";
+import { RunDetailPage } from "./pages/RunDetailPage.jsx";
+import { ProtectedRoute } from "./components/ProtectedRoute.jsx";
+const protectedPage = (page) => <ProtectedRoute>{page}</ProtectedRoute>;
+export const router = createBrowserRouter([{ path: "/", element: protectedPage(<DashboardPage />) }, { path: "/workspaces", element: protectedPage(<WorkspacesPage />) }, { path: "/workspaces/:workspaceId", element: protectedPage(<WorkspacePage />) }, { path: "/runs/:runId", element: protectedPage(<RunDetailPage />) }, { path: "/login", element: <LoginPage /> }, { path: "/register", element: <RegisterPage /> }]);
